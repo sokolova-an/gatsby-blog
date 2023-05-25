@@ -1,12 +1,14 @@
 .container {
   margin: auto;
-  max-width: 500px;
+  max-width: 900px;
   font-family: sans-serif;
+  padding-left: 20%;
 }
 
 .heading {
   color: rebeccapurple;
 }
+
 .nav-links {
   display: flex;
   list-style: none;

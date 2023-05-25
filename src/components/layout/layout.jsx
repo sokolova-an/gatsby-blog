@@ -1,13 +1,6 @@
-import * as React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from './layout.module.css'
+import * as React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import * as style from "./layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -18,36 +11,33 @@ const Layout = ({ pageTitle, children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <div className={container}>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+    <div className={style.container}>
+      <header className={style.siteTitle}>
+        {data.site.siteMetadata.title}
+      </header>
       <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
+        <ul className={style.navLinks}>
+          <li className={style.navLinkItem}>
+            <Link to="/" className={style.navLinkText}>
               Home
             </Link>
           </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
-              About
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/blog" className={navLinkText}>
+          <li className={style.navLinkItem}>
+            <Link to="/blog" className={style.navLinkText}>
               Blog
             </Link>
           </li>
         </ul>
       </nav>
       <main>
-        <h1 className={heading}>{pageTitle}</h1>
+        <h1 className={style.heading}>{pageTitle}</h1>
         {children}
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
